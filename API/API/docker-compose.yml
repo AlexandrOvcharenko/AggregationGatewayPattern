@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  catalogdb:
+    image: mongo
+
+  basketdb:
+    image: redis:alpine
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+
+  #basket.api:
+  #  image: ${DOCKER_REGISTRY-}basketapi
+  #  build:
+  #    context: .
+  #    dockerfile: Services/Basket/Basket.API/Dockerfile
+
+  #shopping.aggregator:
+  #  image: ${DOCKER_REGISTRY-}shoppingaggregator
+  #  build:
+  #    context: .
+  #    dockerfile: Gateways/Shopping.Aggregator/Dockerfile
+
+  #ocelotapigw:
+  #  image: ${DOCKER_REGISTRY-}ocelotapigw
+  #  build:
+  #    context: .
+  #    dockerfile: Gateways/OcelotApiGw/Dockerfile 
+
+volumes:
+  mongo_data:
