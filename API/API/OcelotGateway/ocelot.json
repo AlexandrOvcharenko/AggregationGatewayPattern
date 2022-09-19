@@ -11,7 +11,15 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 10,
+        "Limit": 3,
+        "QuotaExceededMessage": "My custom QuotaExceededMessage message"
+      }
     }
   ]
 }
