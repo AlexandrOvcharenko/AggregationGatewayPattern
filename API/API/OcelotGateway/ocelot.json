@@ -3,11 +3,11 @@
     //Catalog API
     {
       "DownstreamPathTemplate": "/api/v1/Catalog",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "5105"
+          "Port": 7105
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
@@ -19,7 +19,15 @@
         "PeriodTimespan": 10,
         "Limit": 3,
         "QuotaExceededMessage": "My custom QuotaExceededMessage message"
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "DurationOfBreak": 100000,
+        "TimeoutValue": 2000
       }
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7126"
+  }
 }
